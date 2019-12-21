@@ -8,12 +8,12 @@ module multiCS4(factor1, factor2, product);
   input [3:0] factor1, factor2;
   output [8:0] product;
 
-  wire [3:0] pproduct [3:0]; //partial products
+  wire [3:0] pproduct[3:0]; //partial products
   wire [4:0] carrySave[2:0];
   wire [3:0] merging_vec[1:0]; //to carry partial product sums
   wire [1:0] carryProp;
 
-  integer i, j;
+  genvar i, j;
 
   //Loops for partial product generation
   for(i = 0; i < 4; i = i + 1)
