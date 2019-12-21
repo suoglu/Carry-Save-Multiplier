@@ -1,3 +1,13 @@
-# Carry-Save-Multiplier
+# Carry Save Multiplier
+
+This repository contain variety of carry save multipliers. Modules will be simulated and tested. Testing will be done on [Digilent Basys 3](https://reference.digilentinc.com/reference/programmable-logic/basys-3/reference-manual) FPGA.
+
+'multiCS4_v1'
+  * Simulation: with ISim on 21 Dec 2019
+  * Implementation: x
+
+'multiCS4_fullbasecell'
+  * Simulation: x
+  * Implementation: x
 
 work in progres...
