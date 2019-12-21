@@ -4,7 +4,7 @@
 `timescale 1ns / 1ps
 
 // 4 bit Carry Save Multiplier
-module multiCS4(factor1, factor2, product);
+module multiCS4_fullbasecell(factor1, factor2, product);
   input [3:0] factor1, factor2;
   output [8:0] product;
 
@@ -65,6 +65,8 @@ module basecell_ha(f1_i, f2_i, b_i, sum_o, c_o);
 
   assign pp = f1_i & f2_i;
 
+  HA adder(pp, b_i, sum_o, c_o);
+
 endmodule // Base cell with half adder
 
 module basecell_fa(f1_i, f2_i, b_i, c_i, sum_o, c_o);
@@ -74,6 +76,8 @@ module basecell_fa(f1_i, f2_i, b_i, c_i, sum_o, c_o);
   wire pp;
 
   assign pp = f1_i & f2_i;
+
+  FA adder(pp, b_i, c_i, sum_o, c_o);
 
 endmodule // Base cell with full adder
 
