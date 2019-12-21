@@ -8,6 +8,15 @@ module multiCS4(factor1, factor2, product);
   input [3:0] factor1, factor2;
   output [8:0] product;
 
+
+
+endmodule
+
+// 4 bit Carry Save Multiplier version 1
+module multiCS4_v1(factor1, factor2, product);
+  input [3:0] factor1, factor2;
+  output [8:0] product;
+
   wire [3:0] pproduct[3:0]; //partial products
   wire [4:0] carrySave[2:0];
   wire [3:0] merging_vec[1:0]; //to carry partial product sums
@@ -19,7 +28,7 @@ module multiCS4(factor1, factor2, product);
   for(i = 0; i < 4; i = i + 1)
     for(j = 0; j < 4; j = j + 1)
       begin
-        assign  pproduct[i][j] = factor1[i] ^ factor2[j];
+        assign  pproduct[i][j] = factor1[i] & factor2[j];
       end
 
 	//Adder array and product generation
@@ -47,6 +56,26 @@ module multiCS4(factor1, factor2, product);
 	HA level2_4(carrySave[1][4], carrySave[2][3], product[7], product[8]);
 
 endmodule
+
+module basecell_ha(f1_i, f2_i, b_i, sum_o, c_o);
+  input f1_i, f2_i, b_i;
+  output sum_o, c_o;
+
+  wire pp;
+
+  assign pp = f1_i & f2_i;
+
+endmodule // Base cell with half adder
+
+module basecell_fa(f1_i, f2_i, b_i, c_i, sum_o, c_o);
+  input f1_i, f2_i, b_i, c_i;
+  output sum_o, c_o;
+
+  wire pp;
+
+  assign pp = f1_i & f2_i;
+
+endmodule // Base cell with full adder
 
 //Simple 1 bit full adder
 module FA(A, B, Cin, S, Cout);
