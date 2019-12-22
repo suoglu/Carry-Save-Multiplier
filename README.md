@@ -7,7 +7,7 @@ This repository contain variety of carry save multipliers. 4 random test cases a
   * Implementation: x
 
 `multiCS4_fullbasecell`
-  * Simulation: with ISim on 22 Dec 2019
+  * Simulation: x
   * Implementation: x
 
 work in progress...
