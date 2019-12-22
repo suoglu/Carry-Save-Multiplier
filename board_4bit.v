@@ -1,5 +1,5 @@
 module board(leds, eq_led, in1, in2);
-  wire [3:0] in1, in2;
+  input [3:0] in1, in2;
   output [8:0] leds;
   output eq_led;
   wire [8:0]  result1, result2, result_comb;
