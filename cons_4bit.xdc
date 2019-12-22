@@ -20,8 +20,8 @@
   	set_property IOSTANDARD LVCMOS33 [get_ports {leds[8]}]
 
 ## Comparison of the results of test units
-  set_property PACKAGE_PIN L1 [get_ports {eq_led[15]}]
-	 set_property IOSTANDARD LVCMOS33 [get_ports {eq_led[15]}]
+  set_property PACKAGE_PIN L1 [get_ports {eq_led}]
+	 set_property IOSTANDARD LVCMOS33 [get_ports {eq_led}]
 
 ## Switches
 ## First factor
