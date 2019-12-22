@@ -7,7 +7,7 @@ This repository contain variety of carry save multipliers. Modules will be simul
   * Implementation: x
 
 `multiCS4_fullbasecell`
-  * Simulation: x
+  * Simulation: with ISim on 22 Dec 2019
   * Implementation: x
 
 work in progres...
