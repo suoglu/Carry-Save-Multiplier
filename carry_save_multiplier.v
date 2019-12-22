@@ -8,7 +8,41 @@ module multiCS4_fullbasecell(factor1, factor2, product);
   input [3:0] factor1, factor2;
   output [8:0] product;
 
+  //Wires to carry signals between cells
+  wire [3:0] sum_vec[3:0];
+  wire [3:0] carry_vec[3:0];
 
+  //Basic cells
+  basecell_fa bc00(factor1[0], factor2[0], 1'b0, 1'b0, sum_vec[0][0], carry_vec[0][0]);
+  basecell_fa bc01(factor1[1], factor2[0], 1'b0, carry_vec[0][0], sum_vec[0][1], carry_vec[0][1]);
+  basecell_fa bc02(factor1[2], factor2[0], 1'b0, carry_vec[0][1], sum_vec[0][2], carry_vec[0][2]);
+  basecell_fa bc03(factor1[3], factor2[0], 1'b0, carry_vec[0][2], sum_vec[0][3], carry_vec[0][3]);
+
+  basecell_fa bc10(factor1[0], factor2[1], sum_vec[0][1], 1'b0, sum_vec[1][0], carry_vec[1][0]);
+  basecell_fa bc11(factor1[1], factor2[1], sum_vec[0][2], carry_vec[1][0], sum_vec[1][1], carry_vec[1][1]);
+  basecell_fa bc12(factor1[2], factor2[1], sum_vec[0][3], carry_vec[1][1], sum_vec[1][2], carry_vec[1][2]);
+  basecell_fa bc13(factor1[3], factor2[1], carry_vec[0][3], carry_vec[1][2], sum_vec[1][3], carry_vec[1][3]);
+
+  basecell_fa bc20(factor1[0], factor2[2], sum_vec[1][1], 1'b0, sum_vec[2][0], carry_vec[2][0]);
+  basecell_fa bc21(factor1[1], factor2[2], sum_vec[1][2], carry_vec[2][0], sum_vec[2][1], carry_vec[2][1]);
+  basecell_fa bc22(factor1[2], factor2[2], sum_vec[1][3], carry_vec[2][1], sum_vec[2][2], carry_vec[2][2]);
+  basecell_fa bc23(factor1[3], factor2[2], carry_vec[1][3], carry_vec[2][2], sum_vec[2][3], carry_vec[2][3]);
+
+  basecell_fa bc30(factor1[0], factor2[3], sum_vec[2][1], 1'b0, sum_vec[3][0], carry_vec[3][0]);
+  basecell_fa bc31(factor1[1], factor2[3], sum_vec[2][2], carry_vec[3][0], sum_vec[3][1], carry_vec[3][1]);
+  basecell_fa bc32(factor1[2], factor2[3], sum_vec[2][3], carry_vec[3][1], sum_vec[3][2], carry_vec[3][2]);
+  basecell_fa bc33(factor1[3], factor2[3], carry_vec[2][3], carry_vec[3][2], sum_vec[3][3], carry_vec[3][3]);
+
+  //Product rewiring
+  assign product[0] = sum_vec[0][0];
+  assign product[1] = sum_vec[1][0];
+  assign product[2] = sum_vec[2][0];
+  assign product[3] = sum_vec[3][0];
+  assign product[4] = sum_vec[3][1];
+  assign product[5] = sum_vec[3][2];
+  assign product[6] = sum_vec[3][3];
+  assign product[7] = sum_vec[3][0];
+  assign product[8] = carry_vec[3][3];
 
 endmodule
 
