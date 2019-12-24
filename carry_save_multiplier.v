@@ -6,7 +6,7 @@
 // 4 bit Carry Save Multiplier
 module multiCS4_fullbasecell(factor1, factor2, product);
   input [3:0] factor1, factor2;
-  output [8:0] product;
+  output [7:0] product;
 
   //Wires to carry signals between cells
   wire [3:0] sum_vec[3:0];
@@ -41,8 +41,7 @@ module multiCS4_fullbasecell(factor1, factor2, product);
   assign product[4] = sum_vec[3][1];
   assign product[5] = sum_vec[3][2];
   assign product[6] = sum_vec[3][3];
-  assign product[7] = sum_vec[3][0];
-  assign product[8] = carry_vec[3][3];
+  assign product[7] = carry_vec[3][3];
 
 endmodule
 
