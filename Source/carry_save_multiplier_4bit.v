@@ -1,6 +1,5 @@
 // Yigit Suoglu
-// This file contains various Carry Save Multiplier modules
-// Multiplier sizes: 4 bit, more to be added
+// This file contains various 4 bit Carry Save Multiplier modules
 `timescale 1ns / 1ps
 
 // 4 bit Carry Save Multiplier
@@ -89,7 +88,7 @@ module multiCS4_v1(factor1, factor2, product);
 	HA level2_4(carrySave[1][4], carrySave[2][3], product[7], product[8]);
 
 endmodule
-
+/*
 module basecell_ha(f1_i, f2_i, b_i, sum_o, c_o);
   input f1_i, f2_i, b_i;
   output sum_o, c_o;
@@ -133,3 +132,4 @@ module HA(A, B, S, Cout);
   assign S = A ^ B;
   assign Cout = A & B;
 endmodule // half Adder
+*/
