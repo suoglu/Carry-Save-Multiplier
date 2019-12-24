@@ -47,12 +47,13 @@ endmodule
 // 4 bit Carry Save Multiplier version 1
 module multiCS4_v1(factor1, factor2, product);
   input [3:0] factor1, factor2;
-  output [8:0] product;
+  output [7:0] product;
 
   wire [3:0] pproduct[3:0]; //partial products
   wire [4:0] carrySave[2:0];
   wire [3:0] merging_vec[1:0]; //to carry partial product sums
   wire [1:0] carryProp;
+  wire dummy;
 
   genvar i, j;
 
@@ -85,7 +86,7 @@ module multiCS4_v1(factor1, factor2, product);
 	FA level2_1(merging_vec[1][1], carrySave[2][0], carrySave[1][1], product[4], carrySave[2][1]);
 	FA level2_2(merging_vec[1][2], carrySave[2][1], carrySave[1][2], product[5], carrySave[2][2]);
 	FA level2_3(merging_vec[1][3], carrySave[2][2], carrySave[1][3], product[6], carrySave[2][3]);
-	HA level2_4(carrySave[1][4], carrySave[2][3], product[7], product[8]);
+	HA level2_4(carrySave[1][4], carrySave[2][3], product[7], dummy);
 
 endmodule
 /*

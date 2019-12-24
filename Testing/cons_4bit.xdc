@@ -16,8 +16,8 @@
   	set_property IOSTANDARD LVCMOS33 [get_ports {leds[6]}]
   set_property PACKAGE_PIN V14 [get_ports {leds[7]}]
   	set_property IOSTANDARD LVCMOS33 [get_ports {leds[7]}]
-  set_property PACKAGE_PIN V13 [get_ports {leds[8]}]
-  	set_property IOSTANDARD LVCMOS33 [get_ports {leds[8]}]
+  #set_property PACKAGE_PIN V13 [get_ports {leds[8]}]
+  	#set_property IOSTANDARD LVCMOS33 [get_ports {leds[8]}]
 
 
 ## Switches

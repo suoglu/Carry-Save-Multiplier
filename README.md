@@ -5,10 +5,12 @@ This repository contain variety of carry save multipliers. Random test cases are
 **4-bit:**
 * `multiCS4_v1`
   * Simulation: with ISim on 24 Dec 2019
-  * On FPGA: 22 Des 2019 ~ tested cases: \*x0, \*x1, 6x6, 9x11, 15x15, 8x8, 3x4
+  * On FPGA: 24 Des 2019
+    * tested cases: \*x0, \*x1, 6x6, 9x11, 15x15, 8x8, 3x4, 10x7, 9x14, 5x11, 5x13, 11x11, 5x3, 2x5,  2x9
 
 * `multiCS4_fullbasecell`
   * Simulation: with ISim on 24 Dec 2019
-  * On FPGA: x
+  * On FPGA: 24 Des 2019
+    * tested cases: \*x0, \*x1, 6x6, 9x11, 15x15, 8x8, 3x4, 10x7, 9x14, 5x11, 5x13, 11x11, 5x3, 2x5,  2x9
 
 work in progress...
