@@ -13,6 +13,7 @@
 `timescale 1ns / 1ps
 
 //ssdMaster: takes 4 4-bit digits and generates ssd control signals to displays them
+module ssdMaster(clk, rst, mode, digit0, digit1, digit2, digit3, a, b, c, d, e, f, g, an0, an1, an2, an3);
   input clk, rst;
   input [3:0] mode; //each bit represents enableing correspond ssd
   //e.g. mode=0001 means only least significant digit (rightmost, digit0) is going to be enabled
