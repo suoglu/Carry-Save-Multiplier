@@ -13,13 +13,13 @@
 `timescale 1ns / 1ps
 
 //ssdMaster: takes 4 4-bit digits and generates ssd control signals to displays them
-module ssdMaster(clk, rst, mode, digit0, digit1, digit2, digit3, a, b, c, d, e, f, g, an0, an1, an2, an3);
+module ssdMaster(clk, rst, mode, digit0, digit1, digit2, digit3, a, b, c, d, e, f, g, an);
   input clk, rst;
   input [3:0] mode; //each bit represents enableing correspond ssd
   //e.g. mode=0001 means only least significant digit (rightmost, digit0) is going to be enabled
   input [3:0] digit0, digit1, digit2, digit3;
   output a, b, c, d, e, f, g;
-  output reg an0, an1, an2, an3;
+  output reg [3:0] an;
 
   reg [1:0] state; //shows a diffrent digit every state
   wire stateClk; //state changes every edge of stateClk
@@ -51,35 +51,12 @@ module ssdMaster(clk, rst, mode, digit0, digit1, digit2, digit3, a, b, c, d, e, 
 
   always@* //anode control
     begin
+    case
         case(state)
-          2'd0:
-            begin
-              an0 = 1'b1;
-              an1 = 1'b0;
-              an2 = 1'b0;
-              an3 = 1'b0;
-            end
-          2'd1:
-            begin
-              an0 = 1'b0;
-              an1 = 1'b1;
-              an2 = 1'b0;
-              an3 = 1'b0;
-            end
-          2'd2:
-            begin
-              an0 = 1'b0;
-              an1 = 1'b0;
-              an2 = 1'b1;
-              an3 = 1'b0;
-            end
-          2'd3:
-            begin
-              an0 = 1'b0;
-              an1 = 1'b0;
-              an2 = 1'b0;
-              an3 = 1'b1;
-            end
+          2'd0: an = 4'b1110;
+          2'd1: an = 4'b1101;
+          2'd2: an = 4'b1011;
+          2'd3: an = 4'b0111;
         endcase
     end
 
