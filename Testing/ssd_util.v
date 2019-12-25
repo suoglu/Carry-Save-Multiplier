@@ -51,7 +51,6 @@ module ssdMaster(clk, rst, mode, digit0, digit1, digit2, digit3, a, b, c, d, e, 
 
   always@* //anode control
     begin
-    case
         case(state)
           2'd0: an = 4'b1110;
           2'd1: an = 4'b1101;
@@ -68,7 +67,7 @@ module ssdMaster(clk, rst, mode, digit0, digit1, digit2, digit3, a, b, c, d, e, 
       digit[3] = digit3;
     end
 
-  assign {a,b,c,d,e,f,g} = (mod[state]) ? abcdefg : 7'b1111111;
+  assign {a,b,c,d,e,f,g} = (mode[state]) ? abcdefg : 7'b1111111;
 
 
   assign encode_in = digit[state];
