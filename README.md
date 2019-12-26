@@ -6,8 +6,9 @@ This repository contain variety of carry save multipliers. Random test cases are
 
 `csmulti_fullbasecell`
   * Simulation: with ISim on 25 Dec 2019
-  * On FPGA: -
-    * tested cases: -
+  * On FPGA: 26 Dec 2019
+    * tested cases: 170x117, 203x45,  255x255, 243x178, 102x49, 132x149, 244x213, 180x173, 249x59,  165x161
+    * tested for bitsize =  8
 
 **4-bit:**
 
