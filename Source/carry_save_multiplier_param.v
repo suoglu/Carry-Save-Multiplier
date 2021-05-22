@@ -1,8 +1,7 @@
 //Yiğit Süoğlu
 //This file contains (various) parameterized Carry Save Multiplier module(s)
 
-module csmulti_fullbasecell(factor0, factor1, product);
-  parameter bitsize = 8; //default is 8, change this line for different sizes
+module csmulti_fullbasecell#(parameter bitsize = 8)(factor0, factor1, product);
   input [(bitsize-1):0] factor0, factor1;
   output reg [((2*bitsize)-1):0] product;
 
